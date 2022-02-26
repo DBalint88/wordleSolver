@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+}
+
+.word-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.letter-box {
+  display:inline;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black
+}
+
+.green {
+  background-color: green;
+}
