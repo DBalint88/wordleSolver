@@ -29,6 +29,10 @@
   style: text-transform:uppercase;
 }
 
+input:focus {
+  outline: none;
+}
+
 .white {
   background-color: white;
   color: black;
@@ -45,4 +49,23 @@
 
 .green {
   background-color: #6aaa64;
+}
+
+#possible-words-window {
+  background-color: black;
+  color: black;
+  width: 50vw;
+  height: 50vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid grey;
+}
+
+#possible-words-list {
+  text-align: center;
+  columns: 4;
+}
+
+#possible-words-list li {
+  list-style: none;
 }

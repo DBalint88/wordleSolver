@@ -71,6 +71,16 @@ function countLetters() {
     console.log("There are " + sortable[i][1] + " " + sortable[i][0].toUpperCase() + "'s in the remaining words, or " + (sortable[i][1] / totalLetters * 100).toFixed(2) + "% of remaining letters.")
   }
   console.log(possibleWords)
+
+  // Report to the user
+  let remainingWordsList = document.getElementById("possible-words-list");
+  remainingWordsList.innerHTML = ("")
+  for (i=0; i<possibleWords.length; i++) {
+    console.log("appending child: " + possibleWords[i])
+    let node = document.createElement("li");
+    node.innerHTML = possibleWords[i]
+    remainingWordsList.appendChild(node)
+  }
 }
 
 countLetters()
@@ -147,7 +157,21 @@ let autoAdvance = function(e) {
     } else {
       document.getElementById((parseInt(this.id) - 1)).value = '';
       document.getElementById((parseInt(this.id) - 1)).focus();
+      if (!this.classList.contains("white")) {
+        this.classList.remove("gray")
+        this.classList.remove("yellow")
+        this.classList.remove("green")
+        this.classList.add("white")
+      }
+      if (!document.getElementById((parseInt(this.id) - 1)).classList.contains("white")) {
+        document.getElementById((parseInt(this.id) - 1)).classList.remove("gray");
+        document.getElementById((parseInt(this.id) - 1)).classList.remove("yellow");
+        document.getElementById((parseInt(this.id) - 1)).classList.remove("green");
+        document.getElementById((parseInt(this.id) - 1)).classList.add("white");
+      }
     }
+  } else if (key === "Enter") {
+    captureClues()
   } else {
     document.getElementById((parseInt(this.id) + 1)).focus();
   }
@@ -185,7 +209,7 @@ let captureClues = function() {
 
 
 
-submitButton.addEventListener("click", captureClues);
+// submitButton.addEventListener("click", captureClues);
 
 // By clicking in the main window, the first empty letter box should be selected
 let defaultFirstEmptyBox = function() {
