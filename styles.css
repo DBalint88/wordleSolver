@@ -4,13 +4,29 @@
   color: white;
 }
 
+#wrapper {
+  display: grid;
+  justify-content: center;
+}
+
 .word-box {
   display: flex;
   flex-direction: row;
+  justify-content:center;
+  width: 50vw;
+  margin: .5rem 0 .5rem 0;
 }
 
 .letter-box {
-  display:inline;
+  height: 5rem;
+  line-height: 3rem;
+  width: 5rem;
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 .4rem 0 .4rem;
+  caret-color: transparent;
+  cursor: default;
+  style: text-transform:uppercase;
 }
 
 .white {
@@ -19,14 +35,14 @@
 }
 
 .gray {
-  background-color: gray;
+  background-color: #787c7e;
 }
 
 .yellow {
-  background-color: yellow;
-  color: black
+  background-color: #c9b458;
+  color: white;
 }
 
 .green {
-  background-color: green;
+  background-color: #6aaa64;
 }

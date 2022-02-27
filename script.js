@@ -51,7 +51,7 @@ function countLetters() {
       for (k=0; k<26; k++) {
         if (possibleWords[i][j] == alphabet[k]) {
           totalLetters++;
-          letterCounts[alphabet[k]]++
+          letterCounts[alphabet[k]]++;
         }
       }
     }
@@ -75,13 +75,13 @@ function countLetters() {
 
 countLetters()
 
-console.log("Begin Test: \n \n \n ")
 
 // This is to protect letters which have been confirmed Green, but when attempted in an addition position are marked gray.
-let protectedByGreen = []
+let protectedByGreen = [];
+let protectedByYellow = [];
 
 function green(letter, position) {
-  protectedByGreen.push(letter)
+  protectedByGreen.push(letter);
   let i = 0;
   while (i < possibleWords.length) {
     if (possibleWords[i][position] != letter) {
@@ -95,7 +95,7 @@ function green(letter, position) {
 function gray(letter) {
   let i = 0
   while (i < possibleWords.length) {
-    if (possibleWords[i].includes(letter) && !(protectedByGreen.includes(letter))) {
+    if ((possibleWords[i].includes(letter)) && !(protectedByGreen.includes(letter)) && !(protectedByYellow.includes(letter))) {
       possibleWords.splice(i, 1)
     } else {
       i++
@@ -104,6 +104,7 @@ function gray(letter) {
 }
 
 function yellow(letter, position) {
+  protectedByYellow.push(letter);
   let i = 0
   while (i < possibleWords.length) {
     if ((possibleWords[i][position] == letter) || !(possibleWords[i].includes(letter))) {
@@ -116,6 +117,7 @@ function yellow(letter, position) {
 
 let submitButton = document.getElementById("submit-button")
 let letterBoxes = document.getElementsByClassName('letter-box')
+
 
 
 let colorCycle = function() {
@@ -135,24 +137,68 @@ let colorCycle = function() {
   }
 }
 
-for (let i = 0; i < letterBoxes.length; i++) {
-  letterBoxes[i].addEventListener('click', colorCycle)
+// When box with id=x is typed into, auto advance to box with id=x+1
+// When backspace is pressed, move back a box and clear it.
+let autoAdvance = function(e) {
+  let key = e.key;
+  if (key === "Backspace") {
+    if (this.id == "0") {
+      letterBoxes[0].focus()
+    } else {
+      document.getElementById((parseInt(this.id) - 1)).value = '';
+      document.getElementById((parseInt(this.id) - 1)).focus();
+    }
+  } else {
+    document.getElementById((parseInt(this.id) + 1)).focus();
+  }
 }
 
+
+// Event listeners for every letter box, to cycle colors on click and auto-advance on typing a letter.
+for (let i = 0; i < letterBoxes.length; i++) {
+  letterBoxes[i].addEventListener('click', colorCycle);
+  letterBoxes[i].addEventListener('keyup', autoAdvance);
+}
+
+// When the submit button is clicked, the value and color status of each box should be collected and passed to the appropriate color function.
+// A for loop is dedicated to each function so that a letter marked gray at the beginning of the word doesn't preclude that same letter being marked yellow or green later in the word.
 let captureClues = function() {
   console.log("You clicked the button and I know about it.")
   for (i=0; i<letterBoxes.length; i++) {
-    if (letterBoxes[i].classList.contains("gray")) {
-      gray(letterBoxes[i].value)
-    }
-    if (letterBoxes[i].classList.contains("yellow")) {
-      yellow(letterBoxes[i].value, (letterBoxes[i].id % 5))
-    }
     if (letterBoxes[i].classList.contains("green")) {
       green(letterBoxes[i].value, (letterBoxes[i].id % 5))
     }
   }
+  for (i=0; i<letterBoxes.length; i++) {
+    if (letterBoxes[i].classList.contains("yellow")) {
+      yellow(letterBoxes[i].value, (letterBoxes[i].id % 5))
+    }
+  }
+  for (i=0; i<letterBoxes.length; i++) {
+    if (letterBoxes[i].classList.contains("gray")) {
+      gray(letterBoxes[i].value)
+    }
+  }
+  // ...and the results should be calculated and reported.
   countLetters()
 }
 
+
+
 submitButton.addEventListener("click", captureClues);
+
+// By clicking in the main window, the first empty letter box should be selected
+let defaultFirstEmptyBox = function() {
+  if (letterBoxes[0].value == "") {
+    letterBoxes[0].focus();
+  } else {
+    for (i=1; i<30; i++) {
+      if ((letterBoxes[i].value == "") || (letterBoxes[i].value == " ")) {
+        letterBoxes[i].focus();
+        break;
+      }
+    }
+  }
+}
+
+document.getElementById("wrapper").addEventListener("click", defaultFirstEmptyBox)

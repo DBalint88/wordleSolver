@@ -7,7 +7,7 @@
 
   </head>
   <body>
-    <div class="wrapper">
+    <div id="wrapper">
       <header>
         <h1>wordleSolver</h1>
         <p>A vanilla JS helper for beating wordle.</p>
@@ -56,7 +56,16 @@
           <input type="text" maxlength=1 class="letter-box white" id="29">
         </div>
         <button type="button" name="button" id="submit-button">Submit</button>
+        <div class="report-pane" id="possible-words-window">
+          <ul id="possible-words-list">
 
+          </ul>
+        </div>
+        <div class="report-pane" id="remaining-letters-window">
+          <ul id="remaining-letters-list">
+
+          </ul>
+        </div>
       </main>
     </div>
     <script src="script.js"></script>
