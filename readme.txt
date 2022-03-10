@@ -1,6 +1,9 @@
-Play your first Word in Wordle.
+wordleSolver 1.0 (9 March 2022)
+Created by Dan Balint
 
-Then switch to this app and enter the results.  You can click anywhere on the page and start typing.  Click each tile to cycle through the colors.  Then hit enter to filter the remaining five letter words.
+HOW TO USE
+
+Play your first Word in Wordle.  Then switch to this app and enter the results.  You can click anywhere on the page and start typing.  Click each tile to cycle through the colors.  Then hit enter to filter the remaining five letter words.
 
 FUTURE DEVELOPMENT
 
@@ -21,3 +24,6 @@ FUTURE DEVELOPMENT
 
 4. PERFORMANCE
     a. Currently, the JS is slow, and I don't know why.  If you type quickly enough, you can get ahead of the advancement script, leaving blank boxes behind.
+
+5. OTHER
+    a. The app should not throw an error to the console when typing after the last box in the last row.
