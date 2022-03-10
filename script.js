@@ -66,13 +66,18 @@ function countLetters() {
     return a[1] - b[1];
   });
 
-  // Report to the console.
+  // Report letter stats to the user.
+  let letterStats = document.getElementById("letter-stats-list");
+  letterStats.innerHTML = ("");
   for (i = 25; i>=0; i--) {
-    console.log("There are " + sortable[i][1] + " " + sortable[i][0].toUpperCase() + "'s in the remaining words, or " + (sortable[i][1] / totalLetters * 100).toFixed(2) + "% of remaining letters.")
+    if (sortable[i][1] != 0) {
+      let node = document.createElement("li");
+      node.innerHTML = "There are " + sortable[i][1] + " " + sortable[i][0].toUpperCase() + "'s in the remaining words, or " + (sortable[i][1] / totalLetters * 100).toFixed(2) + "% of remaining letters."
+      letterStats.appendChild(node);
+    }
   }
-  console.log(possibleWords)
 
-  // Report to the user
+  // Report remaining words to the user
   let remainingWordsList = document.getElementById("possible-words-list");
   remainingWordsList.innerHTML = ("")
   for (i=0; i<possibleWords.length; i++) {
@@ -85,7 +90,7 @@ function countLetters() {
 countLetters()
 
 
-// This is to protect letters which have been confirmed Green, but when attempted in an addition position are marked gray.
+// This is to protect letters which have been confirmed Green, but when attempted in an additional position are marked gray.
 let protectedByGreen = [];
 let protectedByYellow = [];
 
@@ -148,6 +153,7 @@ let colorCycle = function() {
 
 // When box with id=x is typed into, auto advance to box with id=x+1
 // When backspace is pressed, move back a box and clear it.
+// When Enter is pressed, process the clues.
 let autoAdvance = function(e) {
   let key = e.key;
   if (key === "Backspace") {
