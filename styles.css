@@ -7,13 +7,34 @@
 #wrapper {
   display: grid;
   justify-content: center;
+  height: 95vh;
+  width: 95vw;
 }
+
+header {
+  text-align: center;
+}
+
+#pane-1 {grid-area: play-area; height: 100%;}
+#pane-2 {grid-area: suggestion-area; height: 100%;}
+#pane-3 {grid-area: possible-words-window; height: 100%;}
+
+main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 65vh;
+  grid-column-gap: 2rem;
+  grid-template-areas:
+    "play-area suggestion-area possible-words-window";
+}
+
 
 .word-box {
   display: flex;
   flex-direction: row;
   justify-content:center;
-  width: 50vw;
+  width: 35vw;
   margin: .5rem 0 .5rem 0;
 }
 
@@ -51,11 +72,41 @@ input:focus {
   background-color: #6aaa64;
 }
 
-#possible-words-window {
+#pane-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-areas:
+  "word-bubble word-bubble"
+  "turtle ."
+  "letter-stats letter-stats"
+}
+
+#wyrtle-square {
+  grid-area: turtle;
+  background-image: url("turtle.png");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+#word-bubble {
+  background-image: url("word-bubble.png");
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  grid-area: word-bubble;
+}
+
+#letter-stats {
+  width: 100%;
+  height: 100%;
+  grid-area: letter-stats;
+}
+
+#pane-3 {
   background-color: black;
   color: black;
-  width: 50vw;
-  height: 50vw;
   overflow-x: hidden;
   overflow-y: scroll;
   border: 1px solid grey;
@@ -68,4 +119,8 @@ input:focus {
 
 #possible-words-list li {
   list-style: none;
+}
+
+#letter-stats {
+  border: 1px solid grey;
 }

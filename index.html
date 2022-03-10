@@ -13,59 +13,65 @@
         <p>A vanilla JS helper for beating wordle.</p>
       </header>
       <main>
-        <div class="word-box">
-          <input type="text" autofocus="autofocus" maxlength=1 class="letter-box white" id="0">
-          <input type="text" maxlength=1 class="letter-box white" id="1">
-          <input type="text" maxlength=1 class="letter-box white" id="2">
-          <input type="text" maxlength=1 class="letter-box white" id="3">
-          <input type="text" maxlength=1 class="letter-box white" id="4">
+        <div id="pane-1">
+          <div class="word-box">
+            <input type="text" autofocus="autofocus" maxlength=1 class="letter-box white" id="0">
+            <input type="text" maxlength=1 class="letter-box white" id="1">
+            <input type="text" maxlength=1 class="letter-box white" id="2">
+            <input type="text" maxlength=1 class="letter-box white" id="3">
+            <input type="text" maxlength=1 class="letter-box white" id="4">
+          </div>
+          <div class="word-box">
+            <input type="text" maxlength=1 class="letter-box white" id="5">
+            <input type="text" maxlength=1 class="letter-box white" id="6">
+            <input type="text" maxlength=1 class="letter-box white" id="7">
+            <input type="text" maxlength=1 class="letter-box white" id="8">
+            <input type="text" maxlength=1 class="letter-box white" id="9">
+          </div>
+          <div class="word-box">
+            <input type="text" maxlength=1 class="letter-box white" id="10">
+            <input type="text" maxlength=1 class="letter-box white" id="11">
+            <input type="text" maxlength=1 class="letter-box white" id="12">
+            <input type="text" maxlength=1 class="letter-box white" id="13">
+            <input type="text" maxlength=1 class="letter-box white" id="14">
+          </div>
+          <div class="word-box">
+            <input type="text" maxlength=1 class="letter-box white" id="15">
+            <input type="text" maxlength=1 class="letter-box white" id="16">
+            <input type="text" maxlength=1 class="letter-box white" id="17">
+            <input type="text" maxlength=1 class="letter-box white" id="18">
+            <input type="text" maxlength=1 class="letter-box white" id="19">
+          </div>
+          <div class="word-box">
+            <input type="text" maxlength=1 class="letter-box white" id="20">
+            <input type="text" maxlength=1 class="letter-box white" id="21">
+            <input type="text" maxlength=1 class="letter-box white" id="22">
+            <input type="text" maxlength=1 class="letter-box white" id="23">
+            <input type="text" maxlength=1 class="letter-box white" id="24">
+          </div>
+          <div class="word-box">
+            <input type="text" maxlength=1 class="letter-box white" id="25">
+            <input type="text" maxlength=1 class="letter-box white" id="26">
+            <input type="text" maxlength=1 class="letter-box white" id="27">
+            <input type="text" maxlength=1 class="letter-box white" id="28">
+            <input type="text" maxlength=1 class="letter-box white" id="29">
+          </div>
         </div>
-        <div class="word-box">
-          <input type="text" maxlength=1 class="letter-box white" id="5">
-          <input type="text" maxlength=1 class="letter-box white" id="6">
-          <input type="text" maxlength=1 class="letter-box white" id="7">
-          <input type="text" maxlength=1 class="letter-box white" id="8">
-          <input type="text" maxlength=1 class="letter-box white" id="9">
-        </div>
-        <div class="word-box">
-          <input type="text" maxlength=1 class="letter-box white" id="10">
-          <input type="text" maxlength=1 class="letter-box white" id="11">
-          <input type="text" maxlength=1 class="letter-box white" id="12">
-          <input type="text" maxlength=1 class="letter-box white" id="13">
-          <input type="text" maxlength=1 class="letter-box white" id="14">
-        </div>
-        <div class="word-box">
-          <input type="text" maxlength=1 class="letter-box white" id="15">
-          <input type="text" maxlength=1 class="letter-box white" id="16">
-          <input type="text" maxlength=1 class="letter-box white" id="17">
-          <input type="text" maxlength=1 class="letter-box white" id="18">
-          <input type="text" maxlength=1 class="letter-box white" id="19">
-        </div>
-        <div class="word-box">
-          <input type="text" maxlength=1 class="letter-box white" id="20">
-          <input type="text" maxlength=1 class="letter-box white" id="21">
-          <input type="text" maxlength=1 class="letter-box white" id="22">
-          <input type="text" maxlength=1 class="letter-box white" id="23">
-          <input type="text" maxlength=1 class="letter-box white" id="24">
-        </div>
-        <div class="word-box">
-          <input type="text" maxlength=1 class="letter-box white" id="25">
-          <input type="text" maxlength=1 class="letter-box white" id="26">
-          <input type="text" maxlength=1 class="letter-box white" id="27">
-          <input type="text" maxlength=1 class="letter-box white" id="28">
-          <input type="text" maxlength=1 class="letter-box white" id="29">
+
+        <div id="pane-2">
+          <div id="word-bubble"></div>
+          <div id="wyrtle-square"></div>
+          <div id="letter-stats">
+            <ul id="remaining-letters-list">
+          </div>
         </div>
         <!-- <button type="button" name="button" id="submit-button">Submit</button> -->
-        <div class="report-pane" id="possible-words-window">
+        <div id="pane-3">
           <ul id="possible-words-list">
 
           </ul>
         </div>
-        <div class="report-pane" id="remaining-letters-window">
-          <ul id="remaining-letters-list">
 
-          </ul>
-        </div>
       </main>
     </div>
     <script src="script.js"></script>

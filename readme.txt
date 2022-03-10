@@ -9,6 +9,8 @@ FUTURE DEVELOPMENT
 
 1. FUNCTIONALITY
     a. The app should suggest a word from the remaining list that is the result of an algorithm which determines the word that would eliminate the most remaining words.
+    b. A Helper popup should be available to help user understand what to do.
+    c. Needs to be formatted for mobile.
 
 2. APPEARANCE / ANIMATION
     a. The app should be tri-fold.  In the left/top pane should be the entry area, the right/bottom pane should be the remaining words list, and in the center should be Wyrtle the Turtle suggesting a new word.
