@@ -76,7 +76,6 @@ function countLetters() {
   let remainingWordsList = document.getElementById("possible-words-list");
   remainingWordsList.innerHTML = ("")
   for (i=0; i<possibleWords.length; i++) {
-    console.log("appending child: " + possibleWords[i])
     let node = document.createElement("li");
     node.innerHTML = possibleWords[i]
     remainingWordsList.appendChild(node)
