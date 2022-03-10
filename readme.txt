@@ -1,11 +1,11 @@
-wordleSolver 1.1 (9 March 2022)
-Created by Dan Balint
+wordleSolver 1.1
+Created by Dan Balint (Github DBalint88)
 
 HOW TO USE
 
 Play your first Word in Wordle.  Then switch to this app and enter the results.  You can click anywhere on the page and start typing.  Click each tile to cycle through the colors.  Then hit enter to filter the remaining five letter words.
 
-PAST DEVELOPMENT
+VERSION HISTORY
 1.1 (10 March 2022)
     Finished 1B: App now provides instructions.
     Finished 1D: App now reports remaining letter stats to the user in-app.
@@ -40,3 +40,4 @@ FUTURE DEVELOPMENT
 
 5. OTHER
     [ ] a. The app should not throw an error to the console when typing after the last box in the last row.
+    [ ] b. The JS should be modularized for readability.
