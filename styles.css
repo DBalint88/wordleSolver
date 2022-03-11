@@ -95,6 +95,7 @@ input:focus {
   background-image: url("turtle.png");
   background-size: auto 100%;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #word-bubble {
