@@ -18,10 +18,12 @@ VERSION HISTORY
 FUTURE DEVELOPMENT
 
 1. FUNCTIONALITY
-    [ ] a. The app should suggest a word from the remaining list that is the result   of an algorithm which determines the word that would eliminate the most remaining words.
+    [ ] a. The app should suggest a word from the remaining list that is the result of an algorithm which determines the word that would eliminate the most remaining words.
     [X] b. Directions should be provided so new users know how to use the app.
     [ ] c. Needs to be formatted for mobile.
     [X] d. The app should report the letter stats it calculates with to the user, not just to the console.
+    [ ] e. A toggle should be available to enable Challenge Mode.
+    [ ] f. Currently, if a letter has been marked green, but another instance of that letter is marked gray, words will not be eliminated that should.  For instance, if the solution is WATCH and the player tries CATCH, CATCH is not eliminated from the list.  Algorithm should be adjusted so that it IS removed.
 
 2. APPEARANCE / ANIMATION
     [X] a. The app should be tri-fold.  In the left/top pane should be the entry area, the right/bottom pane should be the remaining words list, and in the center should be Wyrtle the Turtle suggesting a new word.
